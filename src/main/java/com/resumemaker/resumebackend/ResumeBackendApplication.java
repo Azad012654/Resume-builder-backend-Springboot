@@ -24,7 +24,7 @@ public class ResumeBackendApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 		
-		System.out.println(this.userDao.createUserTable());		
+//		System.out.println(this.userDao.createUserTable());		
 		this.userDao.createEducationTable();
 		this.userDao.createExperienceTable();
 		this.userDao.createProjectTable();

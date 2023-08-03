@@ -29,7 +29,7 @@ public class UserDao {
     }
 
     public int createUserTable() {
-        String query = "CREATE TABLE IF NOT EXISTS User (" +
+        String query = "CREATE TABLE IF NOT EXISTS Users (" +
                 "username VARCHAR(150) NOT NULL, " +
                 "email VARCHAR(150) PRIMARY KEY, " +
                 "password VARCHAR(150) NOT NULL, " +
@@ -43,23 +43,23 @@ public class UserDao {
     }
 
     public String addUser(User user) {
-        String sql = "INSERT INTO User (username, email, password) VALUES (?, ?, ?)";
+        String sql = "INSERT INTO Users (username, email, password) VALUES (?, ?, ?)";
         jdbcTemplate.update(sql, user.getUsername(), user.getEmail(), user.getPassword());
         return "User Added Successfully!";
     }
     
     public int createEducationTable() {
     	String query = "CREATE TABLE IF NOT EXISTS Education (" +
-    			"id INT AUTO_INCREMENT PRIMARY KEY , " +
+    			"id SERIAL PRIMARY KEY , " +
     			"email VARCHAR(200) NOT NULL , " +
     		    "start_date DATE , " +
     		    "end_date DATE , " +
     		    "institution_name VARCHAR(300) NOT NULL, " +
     		    "course VARCHAR(100) NOT NULL, " + 
-    		    "score DOUBLE NOT NULL, " + 
+    		    "score DOUBLE PRECISION NOT NULL, " + 
     		    "resumeId VARCHAR(50),"+
     		    "createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP, " +
-    		    "updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP)";
+    		    "updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP)";
     	
     	int update = this.jdbcTemplate.update(query);
     	return update;
@@ -99,7 +99,7 @@ public class UserDao {
     
     public int createExperienceTable() {
     	
-    	String query = "CREATE TABLE IF NOT EXISTS Experience( "+"id INT AUTO_INCREMENT PRIMARY KEY , " +
+    	String query = "CREATE TABLE IF NOT EXISTS Experience( "+"id SERIAL PRIMARY KEY , " +
     	"email VARCHAR(100) NOT NULL, "+ 
     	"start_date DATE NOT NULL,"+
     	"end_date DATE NOT NULL,"+
@@ -150,7 +150,7 @@ public class UserDao {
     }
     
     public int createProjectTable() {
-    	String query = "CREATE TABLE IF NOT EXISTS Projects ("+ "id INT AUTO_INCREMENT PRIMARY KEY , " +
+    	String query = "CREATE TABLE IF NOT EXISTS Projects ("+ "id SERIAL PRIMARY KEY , " +
     "email VARCHAR(100) NOT NULL ," +
     "project_name VARCHAR(100) NOT NULL,"+ "project_description VARCHAR(400) NOT NULL," + "resumeId VARCHAR(50))";
     		int update = this.jdbcTemplate.update(query);    
@@ -189,7 +189,7 @@ public class UserDao {
     }
     
     public int createSkillTable() {
-    	String query = "CREATE TABLE IF NOT EXISTS Skills ("+"id INT AUTO_INCREMENT PRIMARY KEY , " +
+    	String query = "CREATE TABLE IF NOT EXISTS Skills ("+"id SERIAL PRIMARY KEY , " +
     "email VARCHAR(200), "+"skills varchar(50)," + "resumeId VARCHAR(50))";
     	int update = this.jdbcTemplate.update(query);
     	return update;
@@ -228,7 +228,7 @@ public class UserDao {
     }
     
     public int createCertiicateTable() {
-    	String query = "CREATE TABLE IF NOT EXISTS Certificate ("+"id INT AUTO_INCREMENT PRIMARY KEY , " +
+    	String query = "CREATE TABLE IF NOT EXISTS Certificate ("+"id SERIAL PRIMARY KEY , " +
     "email VARCHAR(200) NOT NULL, "+"certificate VARCHAR(100)," +"resumeId VARCHAR(50))";
     	int update = this.jdbcTemplate.update(query);
     	return update;
@@ -266,7 +266,7 @@ public class UserDao {
     
     public int createPersonalInfoTable() {
     	
-    	String query = "CREATE TABLE IF NOT EXISTS Personal_Info ("+ "id INT AUTO_INCREMENT PRIMARY KEY , " +
+    	String query = "CREATE TABLE IF NOT EXISTS Personal_Info ("+ "id SERIAL PRIMARY KEY , " +
     	"email VARCHAR(100) NOT NULL,"+"user_email VARCHAR(100) NOT NULL,"+"phone VARCHAR(50) NOT NULL,"+"name VARCHAR(200) NOT NULL, "+"summary VARCHAR(800),"+ "resumeId VARCHAR(50),"+"createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP)";
     	int update = this.jdbcTemplate.update(query);
     	return update;

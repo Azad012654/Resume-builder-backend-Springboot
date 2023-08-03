@@ -94,7 +94,7 @@ public class GetDao {
 
 			@Override
 			public void setValues(PreparedStatement ps) throws SQLException {
-				ps.setNString(1, email);
+				ps.setString(1, email);
 				
 			}
     		
