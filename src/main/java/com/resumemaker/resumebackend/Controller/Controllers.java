@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -72,7 +73,7 @@ public class Controllers {
 		return new ResponseEntity<>(response,HttpStatus.OK);
 		
 	}
-	@PostMapping("add-personalInfo")
+	@PostMapping(path = "add-personalInfo",consumes = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<?> addPersonalInfo(@RequestBody PersonalInfo personal){
 		System.out.println(personal);
 		String response = userdao.InserIntoPersonalInfo(personal);
