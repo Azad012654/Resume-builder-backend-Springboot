@@ -21,7 +21,7 @@ import com.resumemaker.resumebackend.Entities.Skills;
 import com.resumemaker.resumebackend.Entities.User;
 
 @RestController
-@CrossOrigin
+@CrossOrigin(origins = "https://my-first-resume-app.netlify.app")
 public class Controllers {
 	
 	@Autowired
