@@ -164,6 +164,7 @@ public class GetDao {
 				skills.setEmail(rs.getString("email"));
 				skills.setSkills(rs.getString("skills"));
 				skills.setResumeId(rs.getString("resumeId"));
+				
 				return skills;
 			}	
     	});
@@ -171,7 +172,7 @@ public class GetDao {
   
   public List<PersonalInfo> getPersonalInfo(String email){
   	
-  	String sql = "SELECT id,email,user_email,phone,name,summary,resumeId,createdAt FROM personal_info WHERE email=?";
+  	String sql = "SELECT id,email,user_email,phone,name,summary,resumeId,resumename,createdAt FROM personal_info WHERE email=?";
   	
   	return this.jdbcTemplate.query(sql, new PreparedStatementSetter() {
 
@@ -193,6 +194,7 @@ public class GetDao {
 			personalInfo.setName(rs.getString("name"));
 			personalInfo.setSummary(rs.getString("summary"));
 			personalInfo.setResumeId(rs.getString("resumeId"));
+			personalInfo.setResumename(rs.getString("resumename"));
 			personalInfo.setCreatedAt(rs.getDate("createdAt"));
 			return personalInfo;
 		}	

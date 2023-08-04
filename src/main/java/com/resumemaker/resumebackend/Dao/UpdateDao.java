@@ -28,8 +28,8 @@ public class UpdateDao {
 			
 			String sql = "INSERT INTO education (id, email, start_date, end_date, institution_name, course, score, resumeId) " +
                     "VALUES (?, ?, ?, ?, ?, ?, ?, ?) " +
-                    "ON DUPLICATE KEY UPDATE " +
-                    "id = ?, email = ?, start_date = ?, end_date = ?, institution_name = ?, course = ?, score = ?, resumeId = ?";
+                    "ON CONFLICT (id) DO UPDATE " +
+                    "SET id = ?, email = ?, start_date = ?, end_date = ?, institution_name = ?, course = ?, score = ?, resumeId = ?";
 	        
 			
 	        // Use batchUpdate to perform batch updates
@@ -71,8 +71,8 @@ public class UpdateDao {
 			
 			String sql = "INSERT INTO experience (id, email, start_date, end_date, company, position, resumeId, description) " +
                     "VALUES (?, ?, ?, ?, ?, ?, ?, ?) " +
-                    "ON DUPLICATE KEY UPDATE " +
-                    "id = ?, email = ?, start_date = ?, end_date = ?, company = ?, position = ?, resumeId = ?, description = ?";
+                    "ON CONFLICT (id) DO UPDATE " +
+                    "SET id = ?, email = ?, start_date = ?, end_date = ?, company = ?, position = ?, resumeId = ?, description = ?";
 	        
 			
 	        // Use batchUpdate to perform batch updates
@@ -114,8 +114,8 @@ public String updateCertificate(List<Certification> certification) {
 			
 			String sql = "INSERT INTO certificate (id, email, certificate,resumeId) " +
                     "VALUES (?, ?, ?, ?) " +
-                    "ON DUPLICATE KEY UPDATE " +
-                    "id = ?, email = ?, certificate = ?, resumeId = ?";
+                    "ON CONFLICT (id) DO UPDATE " +
+                    "SET id = ?, email = ?, certificate = ?, resumeId = ?";
 	        
 			
 	        // Use batchUpdate to perform batch updates
@@ -150,8 +150,8 @@ public String updateProject(List<Projects> projects) {
 		
 		String sql = "INSERT INTO projects (id, email, project_name,project_description,resumeId) " +
                 "VALUES (?, ?, ?, ?,?) " +
-                "ON DUPLICATE KEY UPDATE " +
-                "id = ?, email = ?,  project_name=?,project_description=?,resumeId=?";
+                "ON CONFLICT (id) DO UPDATE " +
+                "SET id = ?, email = ?,  project_name=?,project_description=?,resumeId=?";
         
 		
         // Use batchUpdate to perform batch updates
@@ -188,8 +188,8 @@ public String updateSkills(List<Skills> skills) {
 		
 		String sql = "INSERT INTO skills (id, email,skills,resumeId) " +
                 "VALUES (?, ?, ?, ?) " +
-                "ON DUPLICATE KEY UPDATE " +
-                "id = ?, email = ?,skills=? ,resumeId=?";
+                "ON CONFLICT (id) DO UPDATE " +
+                "SET id = ?, email = ?,skills=? ,resumeId=?";
         
 		
         // Use batchUpdate to perform batch updates
@@ -225,8 +225,8 @@ public String updatePersonalInfo(List<PersonalInfo> personal) {
 		
 		String sql = "INSERT INTO personal_info (id, email, user_email,phone,name,summary,resumeId)" +
                 "VALUES (?, ?, ?, ?,?,?,?) " +
-                "ON DUPLICATE KEY UPDATE " +
-                "id=?, email=?, user_email=?,phone=?,name=?,summary=?,resumeId=?";
+                "ON CONFLICT (id) DO UPDATE " +
+                "SET id=?, email=?, user_email=?,phone=?,name=?,summary=?,resumeId=?";
         
 		
         // Use batchUpdate to perform batch updates

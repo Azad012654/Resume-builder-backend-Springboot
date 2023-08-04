@@ -267,21 +267,23 @@ public class UserDao {
     public int createPersonalInfoTable() {
     	
     	String query = "CREATE TABLE IF NOT EXISTS Personal_Info ("+ "id SERIAL PRIMARY KEY , " +
-    	"email VARCHAR(100) NOT NULL,"+"user_email VARCHAR(100) NOT NULL,"+"phone VARCHAR(50) NOT NULL,"+"name VARCHAR(200) NOT NULL, "+"summary VARCHAR(800),"+ "resumeId VARCHAR(50),"+"createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP)";
+    	"email VARCHAR(100) NOT NULL,"+"user_email VARCHAR(100) NOT NULL,"+"phone VARCHAR(50) NOT NULL,"+"name VARCHAR(200) NOT NULL, "+"summary VARCHAR(800),"+ "resumeId VARCHAR(50),"+"resumeName VARCHAR(100),"+"createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP)";
     	int update = this.jdbcTemplate.update(query);
     	return update;
     }
     public String InserIntoPersonalInfo(PersonalInfo personal) {
     	Exception message = null;
+    	
     	try {
-    		String sql = "INSERT INTO Personal_Info(email,user_email,phone,name,summary,resumeId) VALUES (?,?,?,?,?,?)";
+    		String sql = "INSERT INTO Personal_Info(email,user_email,phone,name,summary,resumeId, resumename) VALUES (?,?,?,?,?,?,?)";
     		this.jdbcTemplate.update(sql,
     				personal.getEmail(),
     				personal.getUseremail(),
     				personal.getPhone(),
     				personal.getName(),
     				personal.getSummary(),
-    				personal.getResumeId()); 
+    				personal.getResumeId(),
+    				personal.getResumename());
     				
     	}catch(Exception e) {
     		message = e;

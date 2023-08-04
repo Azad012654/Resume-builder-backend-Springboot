@@ -11,9 +11,17 @@ public class PersonalInfo {
 	private String name;
 	private String summary;
 	private String resumeId;
+	private String resumename;
 	private Date createdAt;
 	
 	
+	
+	public String getResumename() {
+		return resumename;
+	}
+	public void setResumename(String resumename) {
+		this.resumename = resumename;
+	}
 	public Date getCreatedAt() {
 		return createdAt;
 	}
@@ -65,9 +73,11 @@ public class PersonalInfo {
 	}
 	@Override
 	public String toString() {
-		return "PersonalInfo [email=" + email + ", UserEmail=" + useremail + ", phone=" + phone + ", name=" + name
-				+ "]";
+		return "PersonalInfo [email=" + email + ", id=" + id + ", useremail=" + useremail + ", phone=" + phone
+				+ ", name=" + name + ", summary=" + summary + ", resumeId=" + resumeId + ", resumename=" + resumename
+				+ ", createdAt=" + createdAt + "]";
 	}
+	
 	
 	
 }
