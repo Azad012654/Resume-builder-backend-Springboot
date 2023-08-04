@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.resumemaker.resumebackend.Dao.DeleteDao;
 
 @RestController
-@CrossOrigin(origins = { "https://example.com", "https://my-first-resume-app.netlify.app" }, allowCredentials = "true")
+@CrossOrigin
 public class DeleteController {
 	
 	@Autowired
